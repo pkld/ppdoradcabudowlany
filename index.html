@@ -41,12 +41,24 @@
       padding: 20px 0;
     }
 
-    /* NAGŁÓWEK / HERO */
+    /* NAGŁÓWEK / HERO Z TŁEM, KTÓRE NIE JEST ROZCIĄGANE */
     header {
-      background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
+      /* Minimalna wysokość, by pokazać więcej obrazu */
+      min-height: 400px; 
+      
+      /* Mniejszy padding, by nie powiększać niepotrzebnie sekcji */
+      padding: 40px 20px; 
+      
+      /* Tło z overlayem i "contain" zamiast "cover" */
+      background: 
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url("https://img.freepik.com/free-photo/3d-house-with-scaffolding_1048-4702.jpg") 
+        no-repeat center;
+      background-size: contain; 
+      
       color: #fff;
-      padding: 60px 20px;
       text-align: center;
+      position: relative;
     }
 
     header h1 {
@@ -57,7 +69,7 @@
 
     header p {
       font-size: 1rem;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
@@ -80,7 +92,7 @@
 
     /* GŁÓWNA ZAWARTOŚĆ */
     main {
-      margin: -40px auto 40px;
+      margin: -20px auto 40px; /* zredukowano górny margines, by nie nachodził za mocno na header */
       background-color: #fff;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.05);
@@ -99,39 +111,34 @@
       color: #0056b3;
     }
 
-    section h3 {
-      font-weight: 600;
-      margin: 20px 0 10px 0;
-      font-size: 1.2rem;
-      color: #007BFF;
-    }
-
     section p, section li {
       font-size: 0.95rem;
       line-height: 1.6;
     }
 
-    section li {
-      margin-bottom: 8px;
+    .section-box {
+      margin-bottom: 20px;
     }
 
-    /* LISTY I ELEMENTY SEKCJI */
     ul {
       list-style: disc;
-      padding-left: 20px;
-      margin-top: 10px;
+      margin-left: 20px;
       margin-bottom: 10px;
     }
 
     ol {
       list-style: decimal;
-      padding-left: 20px;
-      margin-top: 10px;
+      margin-left: 20px;
       margin-bottom: 10px;
     }
 
-    .section-box {
-      margin-bottom: 20px;
+    /* OBRAZKI */
+    .img-responsive {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 20px 0;
+      border-radius: 8px;
     }
 
     /* TESTIMONIALS */
@@ -262,15 +269,15 @@
     <section class="section-box">
       <h2>Plan współpracy – krok po kroku</h2>
       <ol>
-        <li><strong>Konsultacja wstępna (bezpłatna, 45 min)</strong>  
+        <li><strong>Konsultacja wstępna (bezpłatna, 45 min)</strong><br>
           Poznam Twoje potrzeby, określę wstępny zakres i odpowiem na pierwsze pytania.</li>
-        <li><strong>Wybór zakresu wsparcia</strong>  
+        <li><strong>Wybór zakresu wsparcia</strong><br>
           Możesz skorzystać wyłącznie z konsultacji, nadzoru lub pełnego prowadzenia inwestycji.</li>
-        <li><strong>Podpisanie umowy i ustalenie harmonogramu</strong>  
+        <li><strong>Podpisanie umowy i ustalenie harmonogramu</strong><br>
           Precyzujemy terminy, etapy oraz formę rozliczenia.</li>
-        <li><strong>Realizacja i nadzór</strong>  
+        <li><strong>Realizacja i nadzór</strong><br>
           Negocjuję umowy z wykonawcami, weryfikuję dokumentację, monitoruję postępy i dbam o jakość.</li>
-        <li><strong>Odbiory i formalności końcowe</strong>  
+        <li><strong>Odbiory i formalności końcowe</strong><br>
           Pilnuję, by inwestycja została odebrana zgodnie z przepisami i w terminie.</li>
       </ol>
     </section>
@@ -292,11 +299,11 @@
     <section class="section-box">
       <h2>Opinie klientów</h2>
       <div class="testimonial">
-        „Dzięki współpracy z Panem Pawłem uniknęliśmy poprawek fundamentów i zaoszczędziliśmy mnóstwo czasu. Polecam każdemu, kto chce mieć budowę pod kontrolą!”  
+        „Dzięki współpracy z Panem Pawłem uniknęliśmy poprawek fundamentów i zaoszczędziliśmy mnóstwo czasu. Polecam każdemu, kto chce mieć budowę pod kontrolą!”<br>
         – <em>Agnieszka i Marek, okolice Olsztyna</em>
       </div>
       <div class="testimonial">
-        „Zastosowanie prefabrykowanych attyk w hali produkcyjnej pozwoliło przyspieszyć prace o dwa miesiące! To realna korzyść, którą zawdzięczam profesjonalnemu doradztwu.”  
+        „Zastosowanie prefabrykowanych attyk w hali produkcyjnej pozwoliło przyspieszyć prace o dwa miesiące! To realna korzyść, którą zawdzięczam profesjonalnemu doradztwu.”<br>
         – <em>Krzysztof, inwestor w Gorzowie Wielkopolskim</em>
       </div>
     </section>
@@ -331,12 +338,12 @@
       <h2>Przykładowe wyceny</h2>
       <p><strong>Pełne wsparcie</strong> stanowi od 2% do 6% szacunkowego kosztu wybudowania budynku (stan deweloperski).</p>
       <ul>
-        <li><strong>Dom 100 m²:</strong><br> 
-          Koszt budowy: 100 m² x 4500 zł/m² netto = 450 000 zł netto <br>
+        <li><strong>Dom 100 m²:</strong><br>
+          Koszt budowy: 100 m² x 4500 zł/m² netto = 450 000 zł netto<br>
           Stawka 6%: 27 000 zł brutto za pełne wsparcie (ok. 12 mies.).
         </li>
         <li><strong>Dom 300 m²:</strong><br>
-          Koszt budowy: 300 m² x 4500 zł/m² brutto = 1 350 000 zł brutto <br>
+          Koszt budowy: 300 m² x 4500 zł/m² brutto = 1 350 000 zł brutto<br>
           Stawka 3%: 40 500 zł brutto za pełne wsparcie (ok. 12 mies.).
         </li>
       </ul>
